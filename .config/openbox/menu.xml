@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openbox_menu xmlns="http://openbox.org/"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://openbox.org/
+                file:///usr/share/openbox/menu.xsd">
+
+<menu id="root-menu" label="Openbox 3">
+  <item label="Terminal emulator">
+    <action name="Execute"><execute>x-terminal-emulator</execute></action>
+  </item>
+  <item label="Firefox Web browser">
+    <action name="Execute"><execute>x-www-browser</execute></action>
+  </item>
+  <item label="emacs2.4">
+    <action name="Execute"><execute>emacs24</execute></action>
+  </item>
+  <!-- This requires the presence of the 'menu' package to work -->
+  <menu id="/Debian" />
+  <separator />
+  <menu id="client-list-menu" />
+  <separator />
+  <item label="7 ObConf">
+    <action name="Execute"><execute>obconf</execute></action>
+  </item>
+  <item label="8 Restart">
+    <action name="Restart" />
+  </item>
+  <item label="9 Reconfigure">
+    <action name="Reconfigure" />
+  </item>
+  <separator />
+  <item label="0 Exit">
+    <action name="Exit" />
+  </item>
+</menu>
+
+</openbox_menu>
