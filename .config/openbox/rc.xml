@@ -54,7 +54,7 @@
       S: shade (roll up/down)
       D: omnipresent (on all desktops).
   -->
-    <keepBorder>yes</keepBorder>
+    <keepBorder>no</keepBorder>
     <animateIconify>yes</animateIconify>
     <font place="ActiveWindow">
       <name>sans</name>
@@ -179,18 +179,20 @@
   <keyboard>
     <chainQuitKey>C-g</chainQuitKey>
     <keybind key="C-A-t">
-      <action name="Execute"><command>x-terminal-emulator</command></action>
+      <action name="Execute">
+        <command>x-terminal-emulator</command>
+      </action>
     </keybind>
     <keybind key="W-4">
       <action name="Execute">
         <execute>emacs24</execute>
       </action>
     </keybind>
-<keybind key="W-space">
-<action name="ShowMenu">
-<menu>root-menu</menu>
-</action>
-</keybind>
+    <keybind key="W-space">
+      <action name="ShowMenu">
+        <menu>root-menu</menu>
+      </action>
+    </keybind>
     <!-- Keybindings for desktop switching -->
     <keybind key="C-A-Left">
       <action name="GoToDesktop">
@@ -356,7 +358,7 @@
     <!-- number of pixels the mouse must move before a drag begins -->
     <doubleClickTime>500</doubleClickTime>
     <!-- in milliseconds (1000 = 1 second) -->
-    <screenEdgeWarpTime>400</screenEdgeWarpTime>
+    <screenEdgeWarpTime>200</screenEdgeWarpTime>
     <!-- Time before changing desktops when the pointer touches the edge of the
        screen while moving a window, in milliseconds (1000 = 1 second).
        Set this to 0 to disable warping -->
@@ -364,13 +366,13 @@
     <!-- Set this to TRUE to move the mouse pointer across the desktop when
        switching due to hitting the edge of the screen -->
     <context name="Frame">
-  <mousebind action="Press" button="A-Right">
-    <action name="Focus"/>
-    <action name="Raise"/>
-    <action name="ShowMenu">
-      <menu>client-menu</menu>
-    </action>
-  </mousebind>
+      <mousebind action="Press" button="A-Right">
+        <action name="Focus"/>
+        <action name="Raise"/>
+        <action name="ShowMenu">
+          <menu>client-menu</menu>
+        </action>
+      </mousebind>
       <mousebind button="A-Left" action="Press">
         <action name="Focus"/>
         <action name="Raise"/>
