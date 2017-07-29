@@ -391,7 +391,7 @@
       <!-- <mousebind button="A-Right" action="Drag"> -->
       <!--   <action name="Resize"/> -->
       <!-- </mousebind> -->
-      <mousebind button="W-Middle" action="Drag">
+      <mousebind button="A-Middle" action="Drag">
         <action name="Resize">
         </action>
         <!-- <action name="Lower"/> -->
