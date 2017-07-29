@@ -17,7 +17,7 @@
        under the mouse pointer. when followMouse is enabled -->
     <underMouse>no</underMouse>
     <!-- move focus under the mouse, even when the mouse is not moving -->
-    <focusDelay>420</focusDelay>
+    <focusDelay>450</focusDelay>
     <!-- when followMouse is enabled, the mouse must be inside the window for
        this many milliseconds (1000 = 1 sec) before moving focus to it -->
     <raiseOnFocus>yes</raiseOnFocus>
@@ -43,7 +43,7 @@
   </placement>
   <theme>
     <name>Nightmare-01</name>
-    <titleLayout>NLIMC</titleLayout>
+    <titleLayout>NLSMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
       N: window icon
@@ -724,9 +724,6 @@
     <!-- show the manage desktops section in the client-list-(combined-)menu -->
   </menu>
   <applications>
-    <application class="*">
-      <decor>no</decor>
-    </application>
     <application name="emacs24">
       <desktop>all</desktop>
     </application>
