@@ -6,6 +6,9 @@
                 file:///usr/share/openbox/menu.xsd">
 
 <menu id="root-menu" label="Openbox 3">
+  <item label="Chromium">
+    <action name="Execute"><execute>chromium</execute></action>
+  </item>
   <item label="Firefox Web browser">
     <action name="Execute"><execute>x-www-browser</execute></action>
   </item>
