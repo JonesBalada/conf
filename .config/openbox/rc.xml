@@ -178,6 +178,13 @@
   </dock>
   <keyboard>
     <chainQuitKey>C-g</chainQuitKey>
+    <keybind key="W-Left"><action name="MoveResizeTo"><x>0</x><y>0</y></action></keybind>
+    <keybind key="W-Up"><action name="MoveResizeTo"><x>-0</x><y>0</y></action></keybind>
+    <keybind key="W-Down"><action name="MoveResizeTo"><x>0</x><y>-0</y></action></keybind>
+    <keybind key="W-Right"><action name="MoveResizeTo"><x>-0</x><y>-0</y></action></keybind>
+    <keybind key="W-r"><action name="Execute"><command>gmrun</command></action></keybind>
+    <keybind key="W-Return">   <action name="ToggleMaximizeFull"/></keybind>
+    <keybind key="W-A-Return"> <action name="ToggleMaximizeVert"/></keybind>
     <keybind key="C-A-t">
       <action name="Execute">
         <command>x-terminal-emulator</command>
