@@ -178,6 +178,11 @@
   </dock>
   <keyboard>
     <chainQuitKey>C-g</chainQuitKey>
+    <keybind key="W-4">
+      <action name="Execute">
+        <execute>~/.scripts/only_emacs.sh</execute>
+      </action>
+    </keybind>
     <keybind key="W-Left"><action name="MoveResizeTo"><x>0</x><y>0</y></action></keybind>
     <keybind key="W-Up"><action name="MoveResizeTo"><x>-0</x><y>0</y></action></keybind>
     <keybind key="W-Down"><action name="MoveResizeTo"><x>0</x><y>-0</y></action></keybind>
@@ -185,14 +190,27 @@
     <keybind key="W-r"><action name="Execute"><command>gmrun</command></action></keybind>
     <keybind key="W-Return">   <action name="ToggleMaximizeFull"/></keybind>
     <keybind key="W-A-Return"> <action name="ToggleMaximizeVert"/></keybind>
+  <keybind key="W-o">
+      <keybind key="e">
+        <action name="Execute">
+          <execute>/home/urukrama/.scripts/logout</execute>
+        </action>
+      </keybind>
+      <keybind key="s">
+        <action name="Execute">
+          <execute>/home/urukrama/.scripts/shutdown</execute>
+        </action>
+      </keybind>
+      <keybind key="r">
+        <action name="Execute">
+          <command>osdctl -s 'reconfiguring'</command>
+        </action>
+        <action name="Reconfigure"/>
+      </keybind>
+  </keybind>
     <keybind key="C-A-t">
       <action name="Execute">
         <command>x-terminal-emulator</command>
-      </action>
-    </keybind>
-    <keybind key="W-4">
-      <action name="Execute">
-        <execute>emacs24</execute>
       </action>
     </keybind>
     <keybind key="W-space">
@@ -348,9 +366,9 @@
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
-          <name>Konqueror</name>
+          <name>thunar</name>
         </startupnotify>
-        <command>kfmclient openProfile filemanagement</command>
+        <command>thunar</command>
       </action>
     </keybind>
     <!-- Launch scrot when Print is pressed -->
