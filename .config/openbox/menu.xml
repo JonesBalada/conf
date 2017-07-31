@@ -6,14 +6,17 @@
                 file:///usr/share/openbox/menu.xsd">
 
 <menu id="root-menu" label="Openbox 3">
+  <item label=" Firefox Web browser">
+    <action name="Execute"><execute>~/.scripts/firefox_only.sh</execute></action>
+  </item>
   <item label="Chromium">
-    <action name="Execute"><execute>chromium</execute></action>
+    <action name="Execute"><execute>~/.scripts/only_chromium.sh</execute></action>
   </item>
   <item label="eclipse">
     <action name="Execute"><execute>/opt/eclipse/eclipse</execute></action>
   </item>
   <item label="Firefox Web browser">
-    <action name="Execute"><execute>firefox</execute></action>
+    <action name="Execute"><execute>~/.scripts/firefox_only.sh</execute></action>
   </item>
   <item label="spacemacs">
     <action name="Execute"><execute>emacs24</execute></action>
