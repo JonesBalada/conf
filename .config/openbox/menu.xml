@@ -10,7 +10,7 @@
     <action name="Execute"><execute>chromium</execute></action>
   </item>
   <item label="Firefox Web browser">
-    <action name="Execute"><execute>x-www-browser</execute></action>
+    <action name="Execute"><execute>firefox</execute></action>
   </item>
   <item label="spacemacs">
     <action name="Execute"><execute>emacs24</execute></action>
