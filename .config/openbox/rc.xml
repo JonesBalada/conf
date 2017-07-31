@@ -123,12 +123,12 @@
     <number>4</number>
     <firstdesk>1</firstdesk>
     <names>
-      <!-- set names up here if you want to, like this:
-    <name>desktop 1</name>
-    <name>desktop 2</name>
-    -->
+      <name>1(área de trabalho sem nome)</name>
+      <name>2(área de trabalho sem nome)</name>
+      <name>3(área de trabalho sem nome)</name>
+      <name>4(área de trabalho sem nome)</name>
     </names>
-    <popupTime>875</popupTime>
+    <popupTime>0</popupTime>
     <!-- The number of milliseconds to show the popup for when switching
        desktops.  Set this to 0 to disable the popup. -->
   </desktops>
@@ -183,14 +183,42 @@
         <execute>~/.scripts/only_emacs.sh</execute>
       </action>
     </keybind>
-    <keybind key="W-Left"><action name="MoveResizeTo"><x>0</x><y>0</y></action></keybind>
-    <keybind key="W-Up"><action name="MoveResizeTo"><x>-0</x><y>0</y></action></keybind>
-    <keybind key="W-Down"><action name="MoveResizeTo"><x>0</x><y>-0</y></action></keybind>
-    <keybind key="W-Right"><action name="MoveResizeTo"><x>-0</x><y>-0</y></action></keybind>
-    <keybind key="W-r"><action name="Execute"><command>gmrun</command></action></keybind>
-    <keybind key="W-Return">   <action name="ToggleMaximizeFull"/></keybind>
-    <keybind key="W-A-Return"> <action name="ToggleMaximizeVert"/></keybind>
-  <keybind key="W-o">
+    <keybind key="W-Left">
+      <action name="MoveResizeTo">
+        <x>0</x>
+        <y>0</y>
+      </action>
+    </keybind>
+    <keybind key="W-Up">
+      <action name="MoveResizeTo">
+        <x>-0</x>
+        <y>0</y>
+      </action>
+    </keybind>
+    <keybind key="W-Down">
+      <action name="MoveResizeTo">
+        <x>0</x>
+        <y>-0</y>
+      </action>
+    </keybind>
+    <keybind key="W-Right">
+      <action name="MoveResizeTo">
+        <x>-0</x>
+        <y>-0</y>
+      </action>
+    </keybind>
+    <keybind key="W-r">
+      <action name="Execute">
+        <command>gmrun</command>
+      </action>
+    </keybind>
+    <keybind key="W-Return">
+      <action name="ToggleMaximizeFull"/>
+    </keybind>
+    <keybind key="W-A-Return">
+      <action name="ToggleMaximizeVert"/>
+    </keybind>
+    <keybind key="W-o">
       <keybind key="e">
         <action name="Execute">
           <execute>/home/urukrama/.scripts/logout</execute>
@@ -207,7 +235,7 @@
         </action>
         <action name="Reconfigure"/>
       </keybind>
-  </keybind>
+    </keybind>
     <keybind key="C-A-t">
       <action name="Execute">
         <command>x-terminal-emulator</command>

@@ -9,6 +9,9 @@
   <item label="Chromium">
     <action name="Execute"><execute>chromium</execute></action>
   </item>
+  <item label="eclipse">
+    <action name="Execute"><execute>/opt/eclipse/eclipse</execute></action>
+  </item>
   <item label="Firefox Web browser">
     <action name="Execute"><execute>firefox</execute></action>
   </item>
