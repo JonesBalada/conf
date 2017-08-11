@@ -15,6 +15,15 @@
   <item label="Firefox Web browser">
     <action name="Execute"><execute>~/.scripts/firefox_only.sh</execute></action>
   </item>
+  <item label="guake">
+    <action name="Execute"><execute>guake</execute></action>
+  </item>
+  <item label="mail Thunderbird">
+    <action name="Execute"><execute>thunderbird</execute></action>
+  </item>
+  <item label="pidgin">
+    <action name="Execute"><execute>pidgin</execute></action>
+  </item>
   <item label="spacemacs">
     <action name="Execute"><execute>emacs24</execute></action>
   </item>
