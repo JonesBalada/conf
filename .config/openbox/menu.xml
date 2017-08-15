@@ -18,6 +18,11 @@
   <item label="guake">
     <action name="Execute"><execute>guake</execute></action>
   </item>
+  <menu id="libreoffice" label="Libre office">
+  <item label="calc">
+    <action name="Execute"><execute>libreoffice --calc</execute></action>
+  </item>
+  </menu>
   <item label="mail Thunderbird">
     <action name="Execute"><execute>thunderbird</execute></action>
   </item>
