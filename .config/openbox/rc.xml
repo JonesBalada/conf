@@ -128,7 +128,7 @@
       <name>3(área de trabalho sem nome)</name>
       <name>4(área de trabalho sem nome)</name>
     </names>
-    <popupTime>0</popupTime>
+    <popupTime>875</popupTime>
     <!-- The number of milliseconds to show the popup for when switching
        desktops.  Set this to 0 to disable the popup. -->
   </desktops>
@@ -401,11 +401,11 @@
         <command>scrot</command>
       </action>
     </keybind>
-<keybind key="A-Print">
-  <action name="Execute">
-    <command>scrot -s</command>
-  </action>
-</keybind>
+    <keybind key="A-Print">
+      <action name="Execute">
+        <command>scrot -s</command>
+      </action>
+    </keybind>
   </keyboard>
   <mouse>
     <dragThreshold>1</dragThreshold>
