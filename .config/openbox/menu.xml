@@ -48,6 +48,9 @@
   <separator />
   <menu id="client-list-menu" />
   <separator />
+  <item label="6 hora">
+    <action name="Execute"><execute>osdctl -t 4</execute></action>
+  </item>
   <item label="7 ObConf">
     <action name="Execute"><execute>obconf</execute></action>
   </item>
