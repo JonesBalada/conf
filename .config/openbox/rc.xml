@@ -128,7 +128,7 @@
       <name>3(área de trabalho sem nome)</name>
       <name>4(área de trabalho sem nome)</name>
     </names>
-    <popupTime>875</popupTime>
+    <popupTime>575</popupTime>
     <!-- The number of milliseconds to show the popup for when switching
        desktops.  Set this to 0 to disable the popup. -->
   </desktops>
@@ -163,12 +163,12 @@
     <!-- (Top|Bottom)(Left|Right|)|Top|Bottom|Left|Right|Floating -->
     <floatingX>0</floatingX>
     <floatingY>0</floatingY>
-    <noStrut>no</noStrut>
-    <stacking>Above</stacking>
+    <noStrut>yes</noStrut>
+    <stacking>Below</stacking>
     <!-- 'Above', 'Normal', or 'Below' -->
-    <direction>Vertical</direction>
+    <direction>Horizontal</direction>
     <!-- 'Vertical' or 'Horizontal' -->
-    <autoHide>no</autoHide>
+    <autoHide>yes</autoHide>
     <hideDelay>300</hideDelay>
     <!-- in milliseconds (1000 = 1 second) -->
     <showDelay>300</showDelay>
@@ -315,6 +315,11 @@
         <to>4</to>
       </action>
     </keybind>
+    <keybind key="W-F5">
+      <action name="GoToDesktop">
+        <to>5</to>
+      </action>
+    </keybind>
     <keybind key="W-d">
       <action name="ToggleShowDesktop"/>
     </keybind>
@@ -452,6 +457,20 @@
         <!-- <action name="FocusToBottom"/> -->
         <!-- <action name="Unfocus"/> -->
       </mousebind>
+
+      <mousebind button="W-Left" action="Click">
+      <action name="ToggleMaximizeFull"/>
+    </mousebind>
+      <mousebind button="W-Right" action="Click">
+      <action name="Lower"/>
+      <action name="Unfocus"/>
+            <action name="MoveResizeTo">
+        <width>768</width>
+        <height>200</height>
+        <x>0</x>
+        <y>0</y>
+</action>
+    </mousebind>
       <mousebind button="A-Up" action="Click">
         <action name="GoToDesktop">
           <to>previous</to>

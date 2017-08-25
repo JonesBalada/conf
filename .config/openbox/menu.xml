@@ -9,9 +9,17 @@
   <item label="Chromium">
     <action name="Execute"><execute>~/.scripts/only_chromium.sh</execute></action>
   </item>
-  <item label="eclipse">
+  <menu id="eclipse" label="eclipse">
+  <item label="alm">
+    <action name="Execute"><execute>/usr/share/eclipse-alm5.0.2/eclipse</execute></action>
+  </item>
+  <item label="lucas">
     <action name="Execute"><execute>/opt/eclipse/eclipse</execute></action>
   </item>
+  <item label="oxygen">
+    <action name="Execute"><execute>/home/00737990929/apl/eclipse64-oxygen/eclipse</execute></action>
+  </item>
+  </menu>
   <item label="Firefox Web browser">
     <action name="Execute"><execute>~/.scripts/firefox_only.sh</execute></action>
   </item>
