@@ -37,12 +37,17 @@
   <item label="pidgin">
     <action name="Execute"><execute>pidgin</execute></action>
   </item>
-  <item label="spacemacs">
-    <action name="Execute"><execute>emacs24</execute></action>
+  <item label="sql">
+    <action name="Execute"><execute>bash ~/apl/sqldeveloper/sqldeveloper.sh</execute></action>
   </item>
   <item label="Terminal emulator">
     <action name="Execute"><execute>x-terminal-emulator</execute></action>
   </item>
+  <menu id="outros" label="z outros">
+    <item label="spacemacs">
+      <action name="Execute"><execute>emacs24</execute></action>
+    </item>
+  </menu>
   <!-- This requires the presence of the 'menu' package to work -->
   <menu id="/Debian" />
   <separator />
