@@ -51,6 +51,9 @@
   <separator />
   <menu id="client-list-menu" />
   <separator />
+  <item label="3 tres">
+    <action name="Execute"><execute>bash ~/Desktop/7vm-10_200_24_110.bash</execute></action>
+  </item>
   <item label="6 hora">
     <action name="Execute"><execute>osdctl -t 4</execute></action>
   </item>
