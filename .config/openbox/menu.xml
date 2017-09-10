@@ -23,8 +23,11 @@
   <item label="Firefox Web browser">
     <action name="Execute"><execute>~/.scripts/firefox_only.sh</execute></action>
   </item>
-  <item label="guake">
-    <action name="Execute"><execute>guake</execute></action>
+  <item label="gimp">
+    <action name="Execute"><execute>gimp</execute></action>
+  </item>
+  <item label="inkscape">
+    <action name="Execute"><execute>inkscape</execute></action>
   </item>
   <menu id="libreoffice" label="Libre office">
   <item label="calc">
