@@ -465,8 +465,8 @@
       <action name="Lower"/>
       <action name="Unfocus"/>
             <action name="MoveResizeTo">
-        <width>768</width>
-        <height>200</height>
+        <width>1024</width>
+        <height>768</height>
         <x>0</x>
         <y>0</y>
 </action>
