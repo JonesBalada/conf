@@ -1,5 +1,5 @@
 # conf
-Configuracoes
+Configuracoes para openbox e spacemacs
 
 # openbox
 ## instalacao
