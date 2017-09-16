@@ -31,9 +31,14 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
-     sql
+     ;; ----------------------------------------------------------------
+     ;; Example of useful layers you may want to use right away.
+     ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
+     ;; <M-m f e R> (Emacs style) to install them.
+     ;; ----------------------------------------------------------------
      auto-completion
      (auto-completion :disabled-for org spacemacs-org)
+     ;; better-defaults
      emacs-lisp
      git
      helm
@@ -41,18 +46,18 @@ values."
      javascript
      markdown
      org
-     php
-     (shell :variables
-            shell-default-height 30
-            shell-default-position 'bottom)
-     ;; ----------------------------------------------------------------
-     ;; Example of useful layers you may want to use right away.
-     ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
-     ;; <M-m f e R> (Emacs style) to install them.
-     ;; ----------------------------------------------------------------
-     ;; better-defaults
-     ;; markdown
+     ;; php
+     ;; python
+     shell
+     ;; (shell :variables
+     ;;        shell-default-height 30
+     ;;        shell-default-position 'bottom)
+     sql
+     typescript
+     ;; yaml
      ;; spell-checking
+     ;; (spell-checking :variables
+     ;;                 spell-checking-enable-by-default nil)
      ;; syntax-checking
      ;; version-control
      )
@@ -60,7 +65,9 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(
+                                      groovy-mode
+                                      )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
@@ -89,7 +96,7 @@ values."
    ;; This variable has no effect if Emacs is launched with the parameter
    ;; `--insecure' which forces the value of this variable to nil.
    ;; (default t)
-   dotspacemacs-elpa-https t
+   dotspacemacs-elpa-https nil
    ;; Maximum allowed time in seconds to contact an ELPA repository.
    dotspacemacs-elpa-timeout 5
    ;; If non nil then spacemacs will check for updates at startup
@@ -139,7 +146,7 @@ values."
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 13
+                               :size 11
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -223,7 +230,7 @@ values."
    ;; If non nil a progress bar is displayed when spacemacs is loading. This
    ;; may increase the boot time on some systems and emacs builds, set it to
    ;; nil to boost the loading time. (default t)
-   dotspacemacs-loading-progress-bar t
+   dotspacemacs-loading-progress-bar nil
    ;; If non nil the frame is fullscreen when Emacs starts up. (default nil)
    ;; (Emacs 24.4+ only)
    dotspacemacs-fullscreen-at-startup nil
@@ -237,11 +244,11 @@ values."
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's active or selected.
    ;; Transparency can be toggled through `toggle-transparency'. (default 90)
-   dotspacemacs-active-transparency 90
+   dotspacemacs-active-transparency 96
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's inactive or deselected.
    ;; Transparency can be toggled through `toggle-transparency'. (default 90)
-   dotspacemacs-inactive-transparency 90
+   dotspacemacs-inactive-transparency 80
    ;; If non nil show the titles of transient states. (default t)
    dotspacemacs-show-transient-state-title t
    ;; If non nil show the color guide hint for transient state keys. (default t)
@@ -299,16 +306,6 @@ values."
    dotspacemacs-whitespace-cleanup nil
    ))
 
-(defun coelhotopetudo/zmatudo (arg)
-  (interactive "P")
-  (magit-stage-file "/home/alisson/git/coisarada/tudo.org")
-  (magit-stage-file "/home/alisson/git/coisarada/TODOs.org")
-  (magit-stage-file "/home/alisson/git/coisarada/afazeres.org")
-  (magit-stage-file "/home/alisson/git/coisarada/TODOs.org_archive")
-  (magit-commit (format "-m casa %s" (current-time-string)))
-  (magit-push-current-to-upstream nil)
-  )
-
 (defun dotspacemacs/user-init ()
   "Initialization function for user code.
 It is called immediately after `dotspacemacs/init', before layer configuration
@@ -318,51 +315,133 @@ before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   )
 
+(defun coelhotopetudo/zzescsave(arg)
+  (interactive "P")
+  (save-buffer)
+  (evil-escape))
+
+(defun coelhotopetudo/zzescsapy(arg)
+  (interactive "P")
+  (evil-escape)
+  (coelhotopetudo/zpyex arg)
+  )
+
+(defun coelhotopetudo/zzelisp(arg)
+  (interactive "P")
+  (save-buffer)
+  (evil-escape)
+  (eval-buffer))
+
+(defun coelhotopetudo/zzvu(arg)
+  (interactive "P")
+  (evil-escape)
+  (save-buffer)
+  (setq comando "~/temp/vu-imprimir-abrir.sh")
+  (compile comando nil))
+
+(defun coelhotopetudo/zzgrv(arg)
+  (interactive "P")
+  (evil-escape)
+  (save-buffer zclh-groovy)
+  (setq comando
+        (concat "cd " zclh-diretorio " && groovy " zclh-groovy " " zclh-acao " " zclh-jasper " " zclh-diretorio "/dados/" zclh-prefixo "/ " zclh-sq))
+  (compile comando t))
+
+(defun coelhotopetudo/zmatudo (arg)
+  (interactive "P")
+  (magit-stage-file "~/git/coisarada/tudo.org")
+  (magit-stage-file "~/git/coisarada/rascunho.org")
+  (magit-stage-file "~/git/coisarada/sptodos.org")
+  (magit-stage-file "~/git/coisarada/sptodos.org_archive")
+  (magit-stage-file "~/git/coisarada/TODOs.org")
+  (magit-stage-file "~/git/coisarada/TODOs.org_archive")
+  (magit-stage-file "~/git/coisarada/afazeres.org")
+  (magit-stage-file "~/git/coisarada/ftsl2017.org")
+  (magit-stage-file "~/git/coisarada/forum-ideias-anotacoes.org")
+  (magit-stage-file "~/git/coisarada/notes.org")
+  (magit-stage-file "~/git/coisarada/delegacao.org")
+  (magit-commit (format "-m spr %s" (current-time-string)))
+  (magit-push-current-to-upstream nil)
+  )
+
+(defun coelhotopetudo/zpyex (arg)
+  (interactive "P")
+  (save-buffer)
+  (setq compile-command (format "python %s" (file-name-nondirectory
+                                             buffer-file-name)))
+  (compile compile-command t))
+
+(defun coelhotopetudo/zfbpy (arg)
+  (interactive "P")
+  (save-buffer)
+  (compile "python ~/git/coelhotopetudo.github.io/static/firebird.py" t)
+  )
+
+
+(defun coelhotopetudo/zmapmatudo (arg)
+  (interactive "P")
+  (define-key evil-normal-state-map (kbd "DEL") 'coelhotopetudo/zmatudo)
+  )
+
+(defun coelhotopetudo/zmappython (arg)
+  (interactive "P")
+  (define-key evil-normal-state-map (kbd "RET") 'coelhotopetudo/zpyex)
+  )
+
+(defun coelhotopetudo/zarqftslabrir (arg)
+  (interactive "P")
+  (find-file-existing '"~/git/coisarada/ftsl2017.org"))
+
+(defun coelhotopetudo/zarqpadraoabrir (arg)
+  (interactive "P")
+;;(split-window-below-and-focus)
+  (find-file-existing '"~/git/coisarada/tudo.org"))
+
+(defun coelhotopetudo/zarqtodosabrir (arg)
+  (interactive "P")
+  (find-file-existing '"~/git/coisarada/TODOs.org"))
+
 (defun dotspacemacs/user-config ()
+  (setq frame-title-format "%b")
+  (evil-define-key 'normal org-mode-map (kbd "RET") 'save-buffer)
+  ;; variaveis para groovy
+  (setq zclh-jasper "~/workspace/neon/delegacao/head-delegacao/delegacao-servico/src/main/jasperreports/RelatorioAutoridades.jrxml")
+  (setq zclh-groovy "DadosDelegacaoJasper.groovy")
+  (setq zclh-prefixo "dlg")
+  (setq zclh-diretorio "$HOME/git/groosper")
+  (setq zclh-acao "tudo")
+  (setq zclh-sq "1")
+;; tentando fazer com q o anaconda-mode inicie normalmente  (add-to-list 'python-shell-extra-pythonpaths "~/git/coelhotopetudo.github.io/static/")
+  (setq magit-repository-directories '("~/git/"))
   "Configuration function for user code.
 This function is called at the very end of Spacemacs initialization after
 layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
-
-  ;; aumentado especifico para o notebook
-  (setq-default evil-escape-delay 0.2)
-
-  (setq sql-connection-alist
-        '((server1 (sql-product 'mysql)
-                   (sql-server "mysql08.ftsl.org.br")
-                   (sql-user "ftsl8")
-                   (sql-password "Forum2016++")
-                   (sql-database "ftsl8"))
-          (server2 (sql-product 'mysql)
-                   (sql-server "ftsl09.mysql.dbaas.com.br")
-                   (sql-user "ftsl09")
-                   (sql-password "Forum2017**")
-                   (sql-database "ftsl09"))))
-  (defun my-sql-server8 ()
-    (interactive)
-    (my-sql-connect 'mysql 'server1))
-
-  (defun my-sql-server9 ()
-    (interactive)
-    (my-sql-connect 'mysql 'server2))
-
-  (defun my-sql-connect (product connection)
-    ;; remember to set the sql-product, otherwise, it will fail for the first time
-    ;; you call the function
-    (setq sql-product product)
-    (sql-connect connection))
+  ;; https://github.com/syl20bnr/spacemacs/issues/5145
+  (add-hook 'text-mode-hook 'spacemacs/toggle-truncate-lines-on)
 
   (setq mouse-yank-at-point t)
-  (define-key evil-normal-state-map (kbd "RET") 'save-buffer)
-  (evil-define-key 'normal org-mode-map (kbd "RET") 'save-buffer)
-  (setq frame-title-format "%b")
-
+  (cua-mode t)
+  (spacemacs/set-leader-keys-for-major-mode 'python-mode "RET" 'coelhotopetudo/zpyex)
+  (spacemacs/set-leader-keys-for-major-mode 'sql-mode "y" 'coelhotopetudo/zfbpy)
+  (spacemacs/set-leader-keys "yf" 'coelhotopetudo/zarqftslabrir)
+  (spacemacs/set-leader-keys "ym" 'coelhotopetudo/zmapmatudo)
+  (spacemacs/set-leader-keys "yp" 'coelhotopetudo/zmappython)
+  (spacemacs/set-leader-keys "ys" 'coelhotopetudo/zmapsave)
+  (spacemacs/set-leader-keys "yt" 'coelhotopetudo/zarqtodosabrir)
+  (spacemacs/set-leader-keys "yy" 'coelhotopetudo/zarqpadraoabrir)
   (add-hook 'org-mode-hook ;; priorizando
-            (lambda () (local-set-key (kbd "C-<right>") 'org-shiftup)))
-  (add-hook 'org-mode-hook
-            (lambda () (local-set-key (kbd "C-<left>") 'org-shiftdown)))
+            (lambda ()
+              ;; (spacemacs/toggle-auto-completion-off)
+              (local-set-key (kbd "C-<right>") 'org-shiftup)
+              (local-set-key (kbd "C-<left>") 'org-shiftdown)
+              'append
+              ))
+            ;; (add-hook 'org-mode-hook (lambda () (local-set-key (kbd "C-<left>") 'org-shiftdown)))
+  (define-key evil-normal-state-map (kbd "RET") 'save-buffer)
+ ;; (define-key evil-normal-state-map (kbd "DEL") 'spacemacs/zpyex)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -372,9 +451,7 @@ you should place your code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (xterm-color smeargle shell-pop orgit org-projectile org-present org org-pomodoro alert log4e gntp org-download multi-term magit-gitflow htmlize helm-gitignore helm-company helm-c-yasnippet gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit magit-popup git-commit with-editor eshell-z eshell-prompt-extras esh-help company-statistics company auto-yasnippet yasnippet ac-ispell auto-complete ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide ido-vertical-mode hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async quelpa package-build spacemacs-theme))))
+ '(send-mail-function (quote mailclient-send-it)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

@@ -33,6 +33,9 @@
   <item label="calc">
     <action name="Execute"><execute>libreoffice --calc</execute></action>
   </item>
+  <item label="writer">
+    <action name="Execute"><execute>libreoffice --writer</execute></action>
+  </item>
   </menu>
   <item label="mail Thunderbird">
     <action name="Execute"><execute>thunderbird</execute></action>
