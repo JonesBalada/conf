@@ -1,4 +1,4 @@
 ! -*- coding: utf-8 -*-
 ! swap keys {return, end}
-keycode  97 = slash question ccedilha
+keycode  97 = slash question slash
 keycode  66 = Menu NoSymbol Menu
