@@ -2,3 +2,4 @@
 ! swap keys {return, end}
 keycode  97 = slash question slash
 keycode  66 = Menu NoSymbol Menu
+keycode  135 = Super_L NoSymbol Menu
