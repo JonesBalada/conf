@@ -20,11 +20,11 @@ This function should only modify configuration layer settings."
    ;; installation feature and you have to explicitly list a layer in the
    ;; variable `dotspacemacs-configuration-layers' to install it.
    ;; (default 'unused)
-   dotspacemacs-enable-lazy-installation 'unused
+   dotspacemacs-enable-lazy-installation nil
 
    ;; If non-nil then Spacemacs will ask for confirmation before installing
    ;; a layer lazily. (default t)
-   dotspacemacs-ask-for-lazy-installation t
+   dotspacemacs-ask-for-lazy-installation nil
 
    ;; List of additional paths where to look for configuration layers.
    ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
@@ -38,27 +38,28 @@ This function should only modify configuration layer settings."
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
      ;; `M-m f e R' (Emacs style) to install them.
      ;; ----------------------------------------------------------------
+     helm
      ;; auto-completion
      ;; better-defaults
      emacs-lisp
+     epub
      git
-     helm
      html
-     javascript
      markdown
-     multiple-cursors
+     ;; multiple-cursors
+     ;; neotree talvez tenha sido substituido por treemacs
      nginx
      org
+     python
+     treemacs
+     yaml
+     ;; shell
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
      ;; spell-checking
      ;; syntax-checking
      ;; version-control
-     python
-     sql
-     treemacs
-     yaml
      )
 
    ;; List of additional packages that will be installed without being
@@ -68,7 +69,7 @@ This function should only modify configuration layer settings."
    ;; To use a local version of a package, use the `:location' property:
    ;; '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(groovy-mode)
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -90,6 +91,13 @@ This function should only modify configuration layer settings."
 This function is called at the very beginning of Spacemacs startup,
 before layer configuration.
 It should only modify the values of Spacemacs settings."
+
+  ;; p/que o spmc nao consuma tanta memoria e demore tanto p/fechar zclh
+  ;; coloquei esse valor pq a lista jah continha essa quantidade de itens
+  ;; (setq recentf-max-saved-items 50)
+  ;; para que nao tente validar os arquvios tramp
+  ;; (recentf-mode 1)
+
   ;; This setq-default sexp is an exhaustive list of all the supported
   ;; spacemacs settings.
   (setq-default
@@ -158,11 +166,6 @@ It should only modify the values of Spacemacs settings."
    ;; (default 'vim)
    dotspacemacs-editing-style 'vim
 
-   ;; If non-nil show the version string in the Spacemacs buffer. It will
-   ;; appear as (spacemacs version)@(emacs version)
-   ;; (default t)
-   dotspacemacs-startup-buffer-show-version t
-
    ;; Specify the startup banner. Default value is `official', it displays
    ;; the official spacemacs logo. An integer value is the index of text
    ;; banner, `random' chooses a random text banner in `core/banners'
@@ -216,7 +219,7 @@ It should only modify the values of Spacemacs settings."
 
    ;; Default font or prioritized list of fonts.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 11.0
+                               :size 11
                                :weight normal
                                :width normal)
 
@@ -438,13 +441,6 @@ It should only modify the values of Spacemacs settings."
    ;; (default nil)
    dotspacemacs-whitespace-cleanup nil
 
-   ;; If non nil activate `clean-aindent-mode' which tries to correct
-   ;; virtual indentation of simple modes. This can interfer with mode specific
-   ;; indent handling like has been reported for `go-mode'.
-   ;; If it does deactivate it here.
-   ;; (default t)
-   dotspacemacs-use-clean-aindent-mode t
-
    ;; Either nil or a number of seconds. If non-nil zone out after the specified
    ;; number of seconds. (default nil)
    dotspacemacs-zone-out-when-idle nil
@@ -477,19 +473,38 @@ This function is called only while dumping Spacemacs configuration. You can
 dump."
   )
 
-(defun coelhotopetudo/zmatudo (arg)
+(defun zclh/init-pyenv (arg)
+  "pyenv sendo reconhecido zclh"
   (interactive "P")
-  (magit-commit (format "-m spr %s" (current-time-string)))
-  (magit-push-current-to-upstream nil))
+  (setenv "PATH" (concat "~/.pyenv/plugins/pyenv-virtualenv/shims:~/.pyenv/shims:~/.pyenv/bin:" (getenv "PATH")))
+  )
 
-(defun coelhotopetudo/zarqpadraoabrir (arg)
+(defun zclh/escsave (arg)
   (interactive "P")
-  ;;(split-window-below-and-focus)
-  (find-file-existing '"~/git/18-dezoito/dgg.org"))
+  (evil-escape)
+  (save-buffer)
+  )
 
-(defun coelhotopetudo/zarqtodosabrir (arg)
+(defun zclh/node-spmc (arg)
   (interactive "P")
-  (find-file-existing '"~/git/18-dezoito/TODOs.org"))
+  (evil-escape)
+  (save-buffer)
+  (compile "bash ~/out/util/node-spmc.sh"))
+
+(defun clhti/zpyex (arg)
+  (interactive "P")
+  (evil-escape)
+  (save-buffer)
+  (spacemacs/python-execute-file nil)
+  ;; (compile "python %")
+  )
+
+(defun clhti/zpysql (arg)
+  (interactive "P")
+  (evil-escape)
+  (save-buffer)
+  (clhti/zpyex arq)
+  )
 
 (defun dotspacemacs/user-config ()
   "Configuration for user code:
@@ -498,32 +513,35 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
 
-  (add-hook 'text-mode-hook 'spacemacs/toggle-truncate-lines-off)
   (setq mouse-yank-at-point t)
-  (spacemacs/set-leader-keys "yt" 'coelhotopetudo/zarqtodosabrir)
-  (spacemacs/set-leader-keys "yu" 'coelhotopetudo/zarqtodosabrir)
-  (spacemacs/set-leader-keys "yy" 'coelhotopetudo/zarqpadraoabrir)
+  (add-hook 'text-mode-hook 'spacemacs/toggle-truncate-lines-on)
 
   ;; enter to save
   (define-key evil-normal-state-map (kbd "RET") 'save-buffer)
   (evil-define-key 'normal org-mode-map (kbd "RET") 'save-buffer)
 
-  ;; prioridades do org-mode
+  ;; https://github.com/jgmize/dotfiles/blob/master/.spacemacs
+  (add-to-list 'auto-mode-alist '("Jenkinsfile" . groovy-mode))
+
+  ;; https://emacs.stackexchange.com/questions/40994/using-auth-source-with-magit-and-bitbucket
+  (setq magit-process-find-password-functions '(magit-process-password-auth-source))
+
+  (spacemacs/set-leader-keys "ys" (lambda () (interactive) (find-file-existing "~/git/serprarada/sinesp.org")))
+  (spacemacs/set-leader-keys "yt" (lambda () (interactive) (find-file-existing "~/git/18-dezoito/TODOs.org")))
+  (spacemacs/set-leader-keys "yu" (lambda () (interactive) (find-file-existing "~/git/18-dezoito/TODOs.org")))
+  ;; (spacemacs/set-leader-keys "yu" (lambda () (interactive) (find-file-existing "~/git/serprarada/TODOs.org")))
+  (spacemacs/set-leader-keys "yy" (lambda () (interactive) (find-file-existing "~/git/18-dezoito/dgg.org")))
+
+  ;; org-mode porCreatedIgualOrgzly novasComPrdd
+  (add-hook 'org-capture-before-finalize-hook 'org-expiry-insert-created)
   (setq org-projectile-capture-template "* [#D] %?")
   (setq org-lowest-priority ?H)
-  (setq org-default-priority ?C)
-  (add-hook 'org-mode-hook ;; priorizando
-            (lambda ()
-              ;; (spacemacs/toggle-auto-completion-off)
-              (local-set-key (kbd "C-<right>") 'org-shiftup)
-              (local-set-key (kbd "C-<left>") 'org-shiftdown)
-              'append
-              ))
-
-  ;; configs notebook
-  (setq-default evil-escape-delay 0.2)
+  (setq org-default-priority ?D)
+  (setq org-agenda-files (list "~/git/18-dezoito/090-zly.org"
+                               "~/git/18-dezoito/aniversarios.org"
+                               "~/git/18-dezoito/repetidos.org"
+                               ))
   )
-
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
@@ -539,7 +557,7 @@ This function is called at the very end of Spacemacs initialization."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (yaml-mode sqlup-mode sql-indent nginx-mode vmd-mode mmm-mode markdown-toc markdown-mode gh-md emoji-cheat-sheet-plus company-emoji typit mmt sudoku pacmacs 2048-game yasnippet-snippets yapfify ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org symon string-inflection spaceline-all-the-icons smeargle restart-emacs rainbow-delimiters pyvenv pytest pyenv-mode py-isort popwin pippel pip-requirements persp-mode pcre2el password-generator paradox overseer orgit org-projectile org-present org-pomodoro org-mime org-download org-bullets org-brain open-junk-file neotree nameless move-text magit-gitflow macrostep lorem-ipsum live-py-mode linum-relative link-hint info+ indent-guide importmagic hy-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-pydoc helm-purpose helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link fuzzy flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-org evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu elisp-slime-nav editorconfig dumb-jump diminish define-word cython-mode counsel-projectile company-statistics company-anaconda column-enforce-mode clean-aindent-mode auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell))))
+    (nov esxml mmm-mode markdown-toc markdown-mode gh-md yaml-mode groovy-mode nginx-mode spaceline-all-the-icons pipenv paradox org-mime magit-svn live-py-mode link-hint helm-make git-timemachine git-link eyebrowse expand-region evil-nerd-commenter evil-matchit editorconfig dumb-jump doom-modeline all-the-icons counsel-projectile counsel swiper ivy ace-window ace-link avy window-purpose helm helm-core projectile magit transient git-commit powerline dash which-key hydra org-plus-contrib yapfify ws-butler writeroom-mode with-editor winum web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit symon string-inflection spinner spaceline smeargle slim-mode shrink-path scss-mode sass-mode restart-emacs rainbow-delimiters pyvenv pytest pyenv-mode py-isort pug-mode prettier-js popwin pippel pip-requirements persp-mode pcre2el password-generator overseer orgit org-projectile org-present org-pomodoro org-download org-bullets org-brain open-junk-file neotree nameless move-text memoize magit-gitflow macrostep lorem-ipsum linum-relative let-alist less-css-mode indent-guide importmagic impatient-mode imenu-list hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-swoop helm-pydoc helm-purpose helm-projectile helm-org-rifle helm-mode-manager helm-gitignore helm-git-grep helm-flx helm-descbinds helm-css-scss helm-ag google-translate golden-ratio gnuplot gitignore-templates gitconfig-mode gitattributes-mode git-messenger font-lock+ flx-ido fill-column-indicator fancy-battery evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-org evil-numbers evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu emmet-mode elisp-slime-nav eldoc-eval dotenv-mode diminish define-word cython-mode column-enforce-mode clean-aindent-mode centered-cursor-mode auto-highlight-symbol auto-compile anaconda-mode aggressive-indent ace-jump-helm-line))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
