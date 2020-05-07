@@ -6,28 +6,43 @@
                      file:///usr/share/openbox/menu.xsd">
 
     <menu id="root-menu" label="Openbox 3">
+        <item label="a - chromiumUrl">
+            <action name="Execute"><execute>~/.yy/ffurl-parm.sh a</execute></action>
+        </item>
+        <item label="b - chromiumUrl">
+            <action name="Execute"><execute>~/.yy/churl-parm.sh b</execute></action>
+        </item>
         <item label="Chromium">
             <action name="Execute"><execute>~/.scripts/only_chromium.sh</execute></action>
         </item>
         <menu id="eclipse" label="eclipse">
+            <item label="3a">
+                <action name="Execute"><execute>~/apl/eclipse-jee-oxygen-3a/eclipse</execute></action>
+            </item>
             <item label="alm">
                 <action name="Execute"><execute>/usr/share/eclipse-alm5.0.2/eclipse</execute></action>
             </item>
-            <item label="lucas">
-                <action name="Execute"><execute>/opt/eclipse/eclipse</execute></action>
+            <item label="e ESTALEIRO">
+                <action name="Execute"><execute>~/apl/eclipse-Y19HIL52/eclipse</execute></action>
             </item>
-            <item label="oxygen">
-                <action name="Execute"><execute>/home/00737990929/apl/eclipse64-oxygen/eclipse</execute></action>
+            <item label="oxygen - PUBLICACAO">
+                <action name="Execute"><execute>~/apl/eclipse-2018-09/eclipse</execute></action>
+            </item>
+            <item label="sonar-ide">
+                <action name="Execute"><execute>~/apl/eclipse-jee-2018-12-R/eclipse</execute></action>
+            </item>
+            <item label="zonar-neon">
+                <action name="Execute"><execute>/apl/eclipse-neon3-alm-sonarLint/eclipse</execute></action>
             </item>
         </menu>
         <item label="Firefox Web browser">
             <action name="Execute"><execute>~/.scripts/firefox_only.sh</execute></action>
         </item>
-        <item label="gimp">
-            <action name="Execute"><execute>gimp</execute></action>
+        <item label="i - chromiumUrl">
+            <action name="Execute"><execute>~/.yy/churl-parm.sh i</execute></action>
         </item>
-        <item label="inkscape">
-            <action name="Execute"><execute>inkscape</execute></action>
+        <item label="jaspersoft studio">
+            <action name="Execute"><execute>/home/00737990929/apl/jaspersoft_studio_6.8.0/runjss.sh</execute></action>
         </item>
         <menu id="libreoffice" label="Libre office">
             <item label="calc">
@@ -43,15 +58,57 @@
         <item label="pidgin">
             <action name="Execute"><execute>pidgin</execute></action>
         </item>
+        <item label="qutebrowser">
+            <action name="Execute"><execute>bash /apl/qutebrowser/qb.sh > /home/00737990929/apl/qutebrowser/qb.log</execute></action>
+        </item>
         <item label="sql">
             <action name="Execute"><execute>bash ~/apl/sqldeveloper/sqldeveloper.sh</execute></action>
         </item>
-        <item label="Terminal emulator">
-            <action name="Execute"><execute>x-terminal-emulator</execute></action>
+        <item label="t - chromiumUrl">
+            <action name="Execute"><execute>~/.yy/churl-parm.sh t</execute></action>
+        </item>
+        <item label="w - vpn ativar">
+            <action name="Execute"><execute>nmcli connection up a20e6f01-74be-405e-a94d-c152291c6fa6</execute></action>
+        </item>
+        <item label="y - chromiumUrl">
+            <action name="Execute"><execute>~/.yy/churl-parm.sh y</execute></action>
         </item>
         <menu id="outros" label="z outros">
-            <item label="spacemacs">
-                <action name="Execute"><execute>emacs24</execute></action>
+            <item label="1">
+                <action name="Execute"><execute>bash /hoje/shidfr.sh</execute></action>
+            </item>
+            <item label="bt mido - bt">
+                <action name="Execute"><execute>/home/00737990929/out/util/bt-mido-Y19DSL46.sh</execute></action>
+            </item>
+            <item label="down - volume">
+                <action name="Execute"><execute>pactl set-sink-volume bluez_sink.00_11_67_11_1E_CE.a2dp_sink -20%</execute></action>
+            </item>
+            <item label="filezilla">
+                <action name="Execute"><execute>filezilla</execute></action>
+            </item>
+            <item label="gimp">
+                <action name="Execute"><execute>gimp</execute></action>
+            </item>
+            <item label="headphone (FONE DE OUVIDO) habilitar">
+                <action name="Execute"><execute>amixer set "Headphone" unmute</execute></action>
+            </item>
+            <item label="inkscape">
+                <action name="Execute"><execute>inkscape</execute></action>
+            </item>
+            <item label="moto">
+                <action name="Execute"><execute>/ymx1pow</execute></action>
+            </item>
+            <item label="Terminal emulator">
+                <action name="Execute"><execute>x-terminal-emulator</execute></action>
+            </item>
+            <item label="up - volume">
+                <action name="Execute"><execute>pactl set-sink-volume bluez_sink.00_11_67_11_1E_CE.a2dp_sink +20%</execute></action>
+            </item>
+            <item label="vpn">
+                <action name="Execute"><execute>python3 /opt/ovpnserpro/ovpngui</execute></action>
+            </item>
+            <item label="w - vpn DOWN">
+                <action name="Execute"><execute>nmcli connection down a20e6f01-74be-405e-a94d-c152291c6fa6</execute></action>
             </item>
         </menu>
         <!-- This requires the presence of the 'menu' package to work -->
@@ -60,7 +117,7 @@
         <menu id="client-list-menu" />
         <separator />
         <item label="3 tres">
-            <action name="Execute"><execute>bash ~/Desktop/7vm-10_200_24_110.bash</execute></action>
+            <action name="Execute"><execute>bash /out/util/tres.sh</execute></action>
         </item>
         <item label="6 hora">
             <action name="Execute"><execute>osdctl -t 4</execute></action>
