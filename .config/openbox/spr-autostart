@@ -1,0 +1,6 @@
+bash ~/teclado.sh & guake &
+xsetroot -solid black &
+#pidgin & thunderbird &
+#monEsqVert xrandr --output DP-1 --rotate left --left-of HDMI-1 &
+xrandr --output DP-1 --left-of HDMI-1 &
+#amixer set "Headphone" unmute &

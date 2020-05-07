@@ -1,83 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <openbox_menu xmlns="http://openbox.org/"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://openbox.org/
-                file:///usr/share/openbox/menu.xsd">
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://openbox.org/
+                     file:///usr/share/openbox/menu.xsd">
 
-<menu id="root-menu" label="Openbox 3">
-  <item label="Chromium">
-    <action name="Execute"><execute>~/.scripts/only_chromium.sh</execute></action>
-  </item>
-  <menu id="eclipse" label="eclipse">
-  <item label="alm">
-    <action name="Execute"><execute>/usr/share/eclipse-alm5.0.2/eclipse</execute></action>
-  </item>
-  <item label="lucas">
-    <action name="Execute"><execute>/opt/eclipse/eclipse</execute></action>
-  </item>
-  <item label="oxygen">
-    <action name="Execute"><execute>/home/00737990929/apl/eclipse64-oxygen/eclipse</execute></action>
-  </item>
-  </menu>
-  <item label="Firefox Web browser">
-    <action name="Execute"><execute>~/.scripts/firefox_only.sh</execute></action>
-  </item>
-  <item label="gimp">
-    <action name="Execute"><execute>gimp</execute></action>
-  </item>
-  <item label="inkscape">
-    <action name="Execute"><execute>inkscape</execute></action>
-  </item>
-  <menu id="libreoffice" label="Libre office">
-  <item label="calc">
-    <action name="Execute"><execute>libreoffice --calc</execute></action>
-  </item>
-  <item label="writer">
-    <action name="Execute"><execute>libreoffice --writer</execute></action>
-  </item>
-  </menu>
-  <item label="mail Thunderbird">
-    <action name="Execute"><execute>thunderbird</execute></action>
-  </item>
-  <item label="pidgin">
-    <action name="Execute"><execute>pidgin</execute></action>
-  </item>
-  <item label="sql">
-    <action name="Execute"><execute>bash ~/apl/sqldeveloper/sqldeveloper.sh</execute></action>
-  </item>
-  <item label="Terminal emulator">
-    <action name="Execute"><execute>x-terminal-emulator</execute></action>
-  </item>
-  <menu id="outros" label="z outros">
-    <item label="spacemacs">
-      <action name="Execute"><execute>emacs24</execute></action>
-    </item>
-  </menu>
-  <!-- This requires the presence of the 'menu' package to work -->
-  <menu id="/Debian" />
-  <separator />
-  <menu id="client-list-menu" />
-  <separator />
-  <item label="3 tres">
-    <action name="Execute"><execute>bash ~/Desktop/7vm-10_200_24_110.bash</execute></action>
-  </item>
-  <item label="6 hora">
-    <action name="Execute"><execute>osdctl -t 4</execute></action>
-  </item>
-  <item label="7 ObConf">
-    <action name="Execute"><execute>obconf</execute></action>
-  </item>
-  <item label="8 Restart">
-    <action name="Restart" />
-  </item>
-  <item label="9 Reconfigure">
-    <action name="Reconfigure" />
-  </item>
-  <separator />
-  <item label="0 Exit">
-    <action name="Exit" />
-  </item>
-</menu>
+    <menu id="root-menu" label="Openbox 3">
+        <item label="Chromium">
+            <action name="Execute"><execute>~/.scripts/only_chromium.sh</execute></action>
+        </item>
+        <menu id="eclipse" label="eclipse">
+            <item label="alm">
+                <action name="Execute"><execute>/usr/share/eclipse-alm5.0.2/eclipse</execute></action>
+            </item>
+            <item label="lucas">
+                <action name="Execute"><execute>/opt/eclipse/eclipse</execute></action>
+            </item>
+            <item label="oxygen">
+                <action name="Execute"><execute>/home/00737990929/apl/eclipse64-oxygen/eclipse</execute></action>
+            </item>
+        </menu>
+        <item label="Firefox Web browser">
+            <action name="Execute"><execute>~/.scripts/firefox_only.sh</execute></action>
+        </item>
+        <item label="gimp">
+            <action name="Execute"><execute>gimp</execute></action>
+        </item>
+        <item label="inkscape">
+            <action name="Execute"><execute>inkscape</execute></action>
+        </item>
+        <menu id="libreoffice" label="Libre office">
+            <item label="calc">
+                <action name="Execute"><execute>libreoffice --calc</execute></action>
+            </item>
+            <item label="writer">
+                <action name="Execute"><execute>libreoffice --writer</execute></action>
+            </item>
+        </menu>
+        <item label="mail Thunderbird">
+            <action name="Execute"><execute>thunderbird</execute></action>
+        </item>
+        <item label="pidgin">
+            <action name="Execute"><execute>pidgin</execute></action>
+        </item>
+        <item label="sql">
+            <action name="Execute"><execute>bash ~/apl/sqldeveloper/sqldeveloper.sh</execute></action>
+        </item>
+        <item label="Terminal emulator">
+            <action name="Execute"><execute>x-terminal-emulator</execute></action>
+        </item>
+        <menu id="outros" label="z outros">
+            <item label="spacemacs">
+                <action name="Execute"><execute>emacs24</execute></action>
+            </item>
+        </menu>
+        <!-- This requires the presence of the 'menu' package to work -->
+        <menu id="/Debian" />
+        <separator />
+        <menu id="client-list-menu" />
+        <separator />
+        <item label="3 tres">
+            <action name="Execute"><execute>bash ~/Desktop/7vm-10_200_24_110.bash</execute></action>
+        </item>
+        <item label="6 hora">
+            <action name="Execute"><execute>osdctl -t 4</execute></action>
+        </item>
+        <item label="7 ObConf">
+            <action name="Execute"><execute>obconf</execute></action>
+        </item>
+        <item label="8 Restart">
+            <action name="Restart" />
+        </item>
+        <item label="9 Reconfigure">
+            <action name="Reconfigure" />
+        </item>
+        <separator />
+        <item label="0 Exit">
+            <action name="Exit" />
+        </item>
+    </menu>
 
 </openbox_menu>
