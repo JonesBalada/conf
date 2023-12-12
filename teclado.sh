@@ -1,2 +1,2 @@
-setxkbmap us -option compose:caps
+setxkbmap us -option caps:none
 xmodmap ~/.Xmodmap
