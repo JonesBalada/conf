@@ -1,5 +1,37 @@
 ! -*- coding: utf-8 -*-
 ! swap keys {return, end}
 keycode  97 = slash question slash
-keycode  66 = Menu NoSymbol Menu
-keycode  135 = Super_L NoSymbol Menu
+
+! para reddragon
+keycode 94 = F12 F12 F12
+keycode 97 = asciitilde grave asciitilde
+
+! acho que as abaixo eram para as teclas da direita
+! keycode  135 = Super_L NoSymbol Menu
+
+! https://superuser.com/questions/1610715/how-can-i-use-caps-as-a-function-key-to-activate-arbitrary-combinations-on-oth
+!eycode   9 = Escape NoSymbol Escape
+keycode   9 = Escape NoSymbol grave
+!eycode  11 = 2 at 2 at
+keycode  11 = 2 at F2 at
+!eycode  14 = 5 percent 5 percent
+keycode  14 = 5 percent F5
+!eycode  23 = Tab ISO_Left_Tab Tab ISO_Left_Tab
+keycode  23 = Tab ISO_Left_Tab VoidSymbol
+keycode  25 = w W Up
+!eycode  33 = p P p P
+keycode  33 = p P Print
+!eycode  34 = bracketleft braceleft bracketleft braceleft
+keycode  34 = bracketleft braceleft Home
+!eycode  35 = bracketright braceright bracketright braceright
+keycode  35 = bracketright braceright End
+keycode  38 = a A Left
+keycode  39 = s S Down
+keycode  40 = d D Right
+!eycode  60 = period greater period greater
+keycode  60 = period greater Insert
+!eycode  61 = slash question slash question
+keycode  61 = slash question Delete
+!eycode  65 = space NoSymbol space
+keycode  65 = space NoSymbol VoidSymbol
+keycode 66 = Mode_switch
